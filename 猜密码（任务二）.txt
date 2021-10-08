@@ -1,0 +1,33 @@
+#1. 从10到90之前随机取一个数字
+#2. 如果猜错了打印“猜大了”或“猜小了”或“输入非法”
+#3. 三次错误之后，程序休眠10秒再次开始
+
+import random
+import time
+randit=random.randint(10,90)
+num = randit
+day = 1
+print("你有三次猜数字的机会")
+while day < 4:
+    num1 = int(input("请输入（10~90）:"))
+    #print("正确数字是：",num)
+    if num1 == num :
+        print("这都能猜对，不愧是你！")
+        break
+    elif num1 < num and num1 > 9 :
+        print("小了")
+        day = day + 1
+        print("还有",4 - day,"次机会\n")
+    elif num1 > num and num1 < 91 :
+        print("大了")
+        day = day + 1
+        print("还有",4 - day,"次机会\n")
+    else :
+        print("输入异常")
+        day = day + 1
+        print("还有",4 - day,"次机会\n")
+    if day == 4 :
+        print("机会已用尽，请等待10秒后重试......")
+        time.sleep(10)
+        day = 1
+        
