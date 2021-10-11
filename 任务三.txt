@@ -1,0 +1,277 @@
+#0. 代码优化
+'''
+随机生成一个处罚遍数
+    选择容器：
+    元组：（1,2,3）#他是不可修改而且是唯一
+    列表：[1,2,3] # 他是可以修改的
+有一个列表里面有人名
+优化代码：一个输入进行判断，判断为1 开始选人，判断为2开始生成数字  判断为q Q，退出
+'''
+import random
+list=["陆梓言","郭洪波","方则属","签","千纸鹤","EXO"]
+print("============欢迎来到处罚系统===============")
+A = 0
+B = 0
+while True:
+    if A == 1 and B == 1:
+        print(list[ran],"被处罚了",ren,"遍\n")
+        A = 0
+        B = 0
+    x = input("输入进行判断:")
+    if x == '1':
+        ran = random.randint(0,len(list)-1)#len==6  范围是0-6全部可以取到
+        print("选中了：",(list[ran]))
+        A = 1
+    elif x == '2':
+        ren = random.randint(0,90)
+        print("处罚次数：",ren)
+        B = 1
+    elif x == 'q' or x == 'Q':
+        print("程序退出")
+        break
+    else :
+        print("判断失败，请重试")
+
+
+#1. 实现输入10个数字，并打印10个数的求和结果
+while True:
+    ka0 = float(input("请输入第一个数："))
+    ka1 = float(input("请输入第二个数："))
+    ka2 = float(input("请输入第三个数："))
+    ka3 = float(input("请输入第四个数："))
+    ka4 = float(input("请输入第五个数："))
+    ka5 = float(input("请输入第六个数："))
+    ka6 = float(input("请输入第七个数："))
+    ka7 = float(input("请输入第八个数："))
+    ka8 = float(input("请输入第九个数："))
+    ka9 = float(input("请输入第十个数："))
+    kai = ka0+ka1+ka2+ka3+ka4+ka5+ka6+ka7+ka8+ka9
+    print("这十个数的和为：%.2f"%kai)
+    break
+
+
+#2. 从键盘依次输入10个数，最后打印最大的数、10个数的和、和平均数
+ka0 = float(input("请输入第一个数："))
+ka1 = float(input("请输入第二个数："))
+ka2 = float(input("请输入第三个数："))
+ka3 = float(input("请输入第四个数："))
+ka4 = float(input("请输入第五个数："))
+ka5 = float(input("请输入第六个数："))
+ka6 = float(input("请输入第七个数："))
+ka7 = float(input("请输入第八个数："))
+ka8 = float(input("请输入第九个数："))
+ka9 = float(input("请输入第十个数："))
+if ka0>=ka1 and ka0>=ka2 and ka0>=ka3 and ka0>=ka4 and ka0>=ka5 and ka0>=ka6 and ka0>=ka7 and ka0>=ka8 and ka0>=ka9:
+    print("最大数为：",ka0)
+if ka1>=ka0 and ka1>=ka2 and ka1>=ka3 and ka1>=ka4 and ka1>=ka5 and ka1>=ka6 and ka1>=ka7 and ka1>=ka8 and ka1>=ka9:
+    print("最大数为：",ka1)
+if ka2>=ka0 and ka2>=ka1 and ka2>=ka3 and ka2>=ka4 and ka2>=ka5 and ka2>=ka6 and ka2>=ka7 and ka2>=ka8 and ka2>=ka9:
+    print("最大数为：",ka2)
+if ka3>=ka0 and ka3>=ka1 and ka3>=ka2 and ka3>=ka4 and ka3>=ka5 and ka3>=ka6 and ka3>=ka7 and ka3>=ka8 and ka3>=ka9:
+    print("最大数为：",ka3)
+if ka4>=ka0 and ka4>=ka1 and ka4>=ka2 and ka4>=ka3 and ka4>=ka5 and ka4>=ka6 and ka4>=ka7 and ka4>=ka8 and ka4>=ka9:
+    print("最大数为：",ka4)
+if ka5>=ka0 and ka5>=ka1 and ka5>=ka2 and ka5>=ka3 and ka5>=ka4 and ka5>=ka6 and ka5>=ka7 and ka5>=ka8 and ka5>=ka9:
+    print("最大数为：",ka5)
+if ka6>=ka0 and ka6>=ka1 and ka6>=ka2 and ka6>=ka3 and ka6>=ka4 and ka6>=ka5 and ka6>=ka7 and ka6>=ka8 and ka6>=ka9:
+    print("最大数为：",ka6)
+if ka7>=ka0 and ka7>=ka1 and ka7>=ka2 and ka7>=ka3 and ka7>=ka4 and ka7>=ka5 and ka7>=ka6 and ka7>=ka8 and ka7>=ka9:
+    print("最大数为：",ka7)
+if ka8>=ka0 and ka8>=ka1 and ka8>=ka2 and ka8>=ka3 and ka8>=ka4 and ka8>=ka5 and ka8>=ka6 and ka8>=ka7 and ka8>=ka9:
+    print("最大数为：",ka8)
+if ka9>=ka0 and ka9>=ka1 and ka9>=ka2 and ka9>=ka3 and ka9>=ka4 and ka9>=ka5 and ka9>=ka6 and ka9>=ka7 and ka9>=ka8:
+    print("最大数为：",ka9)
+kai = ka0+ka1+ka2+ka3+ka4+ka5+ka6+ka7+ka8+ka9
+print("这十个数的和为：%.2f"%kai)
+kay = kai/10
+print("平均数为：%.3f\n"%kay)
+
+
+#3. random模块使用
+import random
+an = random.randint(50,150)
+print(an)
+
+
+#4. 键盘输入三条边判断是否构成三角形及其形状
+while True:
+    a = float(input("请输入第一条边长度："))
+    if a > 0:
+        b = float(input("请输入第二条边长度："))
+        if b > 0:
+            c = float(input("请输入第三条边长度："))
+            if c > 0:
+                if a+b>c and a+c>b and b+c>a:
+                    print("构成三角形")
+                    if a == b or a == c or b == c:
+                        print("结果为等腰三角形\n")
+                    elif a == b and a == c:
+                        print("结果为等边三角形\n")
+                    elif a*a+b*b == c*c or a*a+c*c == b*b or b*b+c*c == a*a:
+                        print("结果为直角三角形\n")
+                    else:
+                        print("结果为普通三角形\n")
+                else:
+                    print("不能构成三角形\n")
+            else:
+                print("边长不能小于零\n")
+        else:
+            print("边长不能小于零\n")
+    else:
+        print("边长不能小于零\n")       
+
+
+#5. +、-号实现两个数调换
+print("A = 56 B = 78")
+A = 56
+B = 78
+while True:
+    sun = input("输入“+”或“-”号可以调换A,B的值：")
+    if sun == "+" or  sun == "-":
+        A, B = B, A
+        print("A =",A,"B =",B)
+    else:
+        print("暂不支持额外功能")
+    
+
+#6. 三次输入错误锁定，用户名错误、密码错误、用户名和密码都错误；都算错误（最多只允许三次）
+import time
+day = 0
+while True:
+    if day == 3:
+        print("连续三次输入错误，系统已锁定,30秒后重启")
+        day = 0
+        time.sleep(5)
+    User = input("请输入用户名：")
+    if User == 'root':
+        password = input("请输入密码：")
+        if password == 'admin':
+            print("登录系统成功!")
+            break
+        else :
+            print("密码错误，请重试\n")
+            day += 1
+    else :#(如果不计算用户名错误，替换下面的代码为——》continue)
+        print("用户名错误，请重新输入\n")
+        day += 1
+
+
+#7. 打印图形
+print("----打印下列图形----")
+print("          *\n"
+        "         * *\n"
+        "        * * *\n"
+        "       * * * *\n"
+        "      * * * * *\n"
+        "     * * * * * *\n"
+        "    * * * * * * *\n")
+
+
+#8. while循环99乘法表
+i = 1
+while i <= 9:
+    k = 1
+    while k <= i:
+        print(k,"x",i,"=",i * k,end=" ")
+        k += 1
+    i += 1
+    print()
+
+
+#9. while循环99乘法表（倒叙）
+i = 1
+k = 9
+while k > 1:
+    while i <= k:
+        print(i,"x",k,"=",i * k,end=" ")
+        i += 1
+        if i > k:
+            k -= 1
+            i = 1
+            print()
+
+
+#10. 青蛙爬出井
+le = 20#井总高度
+led = 0#青蛙所处的高度
+dey = 0#天数
+while led < le:
+    dey += 1
+    led += 3
+    if led < le:
+        led -= 2
+        #print(led)《——可单次打印每天的上升距离（白天加3晚上减2）
+    else:
+        print("青蛙通过不懈努力终在第",dey,"天爬出了井口")
+        break
+
+
+#11. 较完善的猜数字游戏
+#1. 从1到10之间随机取一个数字
+#2. 如果猜错了打印“猜大了”或“猜小了”
+#3. 三次错误之后，程序休眠10秒再次开始
+#4. 添加计数打印功能
+#5. 添加次数和金币功能
+import random
+import time
+money = 20
+x = 1
+print("猜数字游戏规则说明：\n"
+      "听着，你有20枚金币，系统会从1到10随机选定一个数字\n"
+      "你可以输入你猜的数字，同时会花费两枚金币作为代价(无论对错）\n"
+      "答对了可以获得额外4枚金币奖励，答错了扣除的金币不予返还\n"
+      "但是每次答错都会提醒你猜小了还是猜大了\n"
+      "每一轮游戏只有三次机会，答对了或三次都答错开始新一轮游戏\n"
+      "金币归零时你将失去继续游戏的资格\n"
+      "备注（输入0可提前结束游戏)\n")
+while x > 0:
+    ans = random.randint(1,10)
+    day = 0
+    if money == 0:
+        break
+    while True:
+        num = int(input("请输入你要猜选的数字（1~10）:"))
+        if num == 0:
+            money = 0
+            break
+        if num == ans :
+            print("正确数字是：",ans,"恭喜你答对了")
+            money += 4
+            print("获得了4枚金币奖励，当前金币剩余",money)
+            R = input("输入“是”继续新一轮游戏（输入其他字符则退出游戏）：\n")
+            if R == '是':
+                break
+            else:
+                x = 0
+                break
+        elif num < ans and num > 0 :
+            print("小了")
+            money -= 2
+            day += 1
+            print("还有",3 - day,"次机会")
+            print("扣除两枚金币，当前金币剩余",money,"\n")
+        elif num > ans and num < 11 :
+            print("大了")
+            money -= 2
+            day += 1
+            print("还有",3 - day,"次机会")
+            print("扣除两枚金币，当前金币剩余",money,"\n")
+        else :
+            print("不满足输入要求，你白白浪费了两枚金币")
+            money -= 2
+        if  money == 0:
+            print("您已经没有金币了，穷逼快滚！")
+            break
+        if day == 3 :
+            print("机会已用尽，请等待10秒后开启新一轮游戏......")
+            time.sleep(10)
+            day = 0 
+
+
+12. 20以内（包括20）的阶乘
+k = 1
+z = 1
+while k <= 20:
+    z = k*z
+    print(k,"的阶乘是：",z)
+    k += 1
