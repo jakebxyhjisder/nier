@@ -1,0 +1,71 @@
+#1. 把键换成变量
+#程序运行的时候还是输入汉字（需要一个一个输入）
+print("dict={地球：{中国：{北京：{昌平：{沙河：{七马路：北科院}}}}}}")
+dict={'地球':{'中国':{'北京':{'昌平':{'沙河':{'七马路':'北科院'}}}}}}
+#print(dict["地球"])
+name=input("请输入(*-*):")
+if  name in dict:
+    print(dict[name])
+    name1=input("请输入(*-*):")
+    if name1 in dict[name]:
+        print(dict[name][name1])
+        name2=input("请输入(*-*):")
+        if name2 in dict[name][name1]:
+            print(dict[name][name1][name2])
+            name3=input("请输入(*-*):")
+            if name3 in dict[name][name1][name2]:
+                print(dict[name][name1][name2][name3])
+                name4=input("请输入(*-*):")
+                if name4 in dict[name][name1][name2][name3]:
+                    print(dict[name][name1][name2][name3][name4])
+                    name5=input("请输入(*-*):")
+                    if name5 in dict[name][name1][name2][name3][name4]:
+                        print(dict[name][name1][name2][name3][name4][name5])
+
+
+#2. 人员数据库
+#    姓名  年龄  性别  编号   任职公司   薪资   部门编号
+names = [["曹操","56","男","106","IBM", 500 ,"50"],
+         ["大乔","19","女","230","微软", 501 ,"60"],
+         ["小乔", "19", "女", "210", "Oracle", 600, "60"],
+         ["许褚", "45", "男", "230", "Tencent", 700 , "10"]]
+kei=(500+501+600+700)/4
+print("平均薪资为：%.2f"%kei)
+nei=(56+19+19+45)/4
+print("平均年龄为：%.1f"%nei)
+#names[len(names):]=[["刘备","45","男","220","libaba",500,"30"]]《——切片，和下面这条语句效果一致
+names = names+[["刘备","45","男","220","libaba",500,"30"]]
+print(names)
+#公司男女人数，这里公司都不一样，编号是否意味着各公司人数？男女又如何分类？
+#部门人数的疑问同上
+
+
+#3. 魔法学生成绩
+names=[["罗恩", 23 ,35 ,44],
+       ["哈利",60, 77 ,68 ,88, 90],
+       ["赫敏", 97 ,99 ,89 ,91, 95, 90],
+       ["马尔福" ,100, 85 ,90]]
+luo=23+35+44
+ha=60+77+68+88+90
+he=97+99+89+91+95+90
+ma=100+85+90
+print("罗恩总成绩为：",luo)
+print("哈利总成绩为：",ha)
+print("赫敏总成绩为：",he)
+print("马尔福总成绩为：",ma)
+
+
+#4. 程序问题
+num = int(input("请输入一个数："))
+while num != 0:
+    print(num & 10)
+    num = num // 10
+
+
+#5. 冒泡排序
+a=[5,2,4,7,9,1,3,5,4,0,6,1,3]
+for i in range(len(a)-1):
+    for j in range(0,len(a)-i-1):
+        if a[j]>a[j+1]:
+            a[j],a[j+1] = a[j+1],a[j]
+print(a)
