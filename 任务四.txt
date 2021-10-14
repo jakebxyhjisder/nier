@@ -1,0 +1,209 @@
+#1. 优化Frank商城
+'''
+ Frank的商城：
+        1.准备商品
+        2.空的购物车
+        3.钱包初始化金钱
+        4.最后打印购物小条
+    1.业务：
+        看到商品：
+            商品存在
+                看金钱够：
+                    成功加入购物车。
+                    余额减去对应价格。
+                不够：
+                    穷鬼，去买其他商品。
+            商品不存在：
+                输入错误。
+            输入Q或q，退出并结算。打印小条。
+#####任务：优惠券加上随机获得一张优惠券（9折10，5折3，1折#（1折原为免费，但思考过后觉得差值太大决定改题为1折，单个商品免费没改）
+#####          单个商品打折9折10，5折3，免费的1）
+#####备注：程序中的0.9折同9折，0.5折同5折，以此类推
+
+#准备商品
+shop=[
+#     0   ,   1
+    ["戴尔",19999],#0
+    ["电磁炉",199],#1
+    ["A4纸",9.9],#2
+    ["华为P50 4G",5000],#3
+    ["电瓶车",4000],#4
+    ["橡皮筋",8],#5
+    ["同人本（随机一本）",80],#6
+    ["python初学者入门",400],#7
+    ["《如何让富婆爱上我》",998],#8
+    ["水晶球八音盒",179],#9
+    ["乔丹穿过的球鞋（未证实）",45],#10
+    ["霸王脱发洗发水*3",469],#11
+    ["八二年的可乐（一听）",1500],#12
+    ["原味丝袜(限购一件）",100],#13
+    ["印斯茅斯扮装",1886],#14
+    ["Steam外区账号",60],#15
+    ["二手棺材",600],#16
+    ["藿香正气口服液(一盒）",20],#17
+    ["君子兰（一株）",75],#18
+    ["虚拟偶像手机挂件（可定制）",128],#19
+    ["杰哥家的邀请函",10]#20
+]
+#初始化余额
+money=input("请输入您的余额")
+money=int(money)
+#准备一个购物车
+mycart=[]
+import random
+#制作优惠券列表
+list=['ket','get']#两种优惠券类型
+ket=(0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.5,0.5,0.5,0.1)#全部优惠
+get=(0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.5,0.5,0.5,0)#单个物品优惠
+kei=input("促销活动，是否领取一次随机折扣券的机会?")
+if kei=='是':
+    g=random.sample(list,1)
+    #print(g)——》可打印获得的优惠券类型
+    if g == ['ket']:
+        z=random.sample(ket,1)
+        print("您获得了全场",z,"折优惠，下单时会自动使用")
+    elif g == ['get']:
+        z=random.sample(get,1)
+        print("您获得了单个商品",z,"折优惠，可在下单时选择是否使用")
+    #print(z)《——可打印获得的优惠券折扣
+    y = z[0]#《——后面下单时需要用到的优惠券折扣
+else:
+    print("您已放弃优惠券，请随意")#《——当然了，不抽取优惠券也是可以的
+    y = 1
+    g = 1
+while True:
+#展示商品
+    for index,value in enumerate(shop):
+        print(index,":",value)
+    chose=input("请输入商品编号(按q或Q可结算)")#输入的还是str
+    if chose.isdigit():#  判断是否是数字
+        chose=int(chose)
+        if chose >len(shop):
+            print("这里没有您需要的商品")
+        else:
+            #   余额满足的条件
+            if  money >shop[chose][1]:
+                mycart.append(shop[chose])
+                if g == ['ket']:
+                    money=money-(shop[chose][1])*y#《——折扣计算
+                    print("恭喜你，加入购物车，您的余额为：",money)
+                elif g == ['get']:
+                    mon=input("您是否要将优惠券使用在这件商品上?")#《——可选择优惠券在哪一件商品上使用，更加灵活
+                    if mon == '是':
+                        money=money-(shop[chose][1])*y
+                        print("恭喜你，加入购物车，您的余额为：",money)
+                        y = 1
+                        g = 1#《——优惠券使用后再次下单不会有优惠券询问，所以单独划分支
+                    else :
+                        money=money-shop[chose][1]
+                        print("恭喜你，加入购物车，您的余额为：",money)
+                elif g == 1:#《——单个商品优惠券使用后的路径
+                    money=money-shop[chose][1]
+                    print("恭喜你，加入购物车，您的余额为：",money)
+            # 不满足
+            else:print("您的余额已不足，请赶紧gun!")
+    elif chose=="q" or chose=="Q":
+        #    打印购物小条
+        print("==============================")
+        for index, value in enumerate(mycart):
+            print(index, ":", value,)
+        print("欢迎下次光临!\n"
+              "==============================")
+        print("您的余额还剩:",money)
+        break
+    else:#不是数字
+        print("输入错误")
+
+
+#2. 字典dict
+dict ={'k1':'v1','k2':'v2','k3':'v3'}
+for index,value in enumerate(dict):
+    print(value)#循环显示kay
+
+for index,value in enumerate(dict):
+    print(dict[value])#循环显示value
+
+#for index,value in enumerate(dict1):《——可同时显示kay和value
+#print(value,':',dict1[value])
+
+dict["k4"]='v4'
+print(dict)#字典添加
+
+
+#3. 水果账单
+info = { '苹果':32.8,
+         '香蕉': 22,
+         '葡萄': 15.5}
+while True:
+    name = input("请输入查询的水果名称：")
+    if name == '苹果':
+        print(info['苹果'],"元")
+    elif name == '香蕉':
+        print(info['香蕉'],"元")
+    elif name == '葡萄':
+        print(info['葡萄'],"元")
+    elif name == 'q' or name == 'Q':
+        break
+    else :
+        print("没有找到该水果账单")
+
+
+#4. 购买清单
+ Friuts = {'苹果':12.3,# 水果和单价
+          '草莓':4.5,
+          '香蕉':6.3,
+          '葡萄':5.8,
+          '橘子':6.4,
+          '樱桃':15.8}
+info = {
+        '小明':{'fruits':{'苹果':4,'草莓':13,'香蕉':10},
+                'money': '??'
+                },
+        '小刚':{'fruits': {'葡萄':19,'橘子':12,'樱桃':30},
+                'money': '??'
+                }
+        }
+
+money1 = (info['小明']['fruits']['苹果']*12.3)
+money2 = (info['小明']['fruits']['草莓']*4.5)
+money3 = (info['小明']['fruits']['香蕉']*6.3)
+money = money1+money2+money3
+money = float(money)
+info['小明']['money'] = money
+
+money1 = (info['小刚']['fruits']['葡萄']*5.8)
+money2 = (info['小刚']['fruits']['橘子']*6.4)
+money3 = (info['小刚']['fruits']['樱桃']*15.8)
+money = money1+money2+money3
+money = float(money)
+info['小刚']['money'] = money
+
+name = input("程序已运行，请输入‘name’来查看完整字典：")
+if name == 'name':
+    print(info)
+else:
+    print("输入有误，程序已停止")
+
+
+#5. 统计列表重复数字个数
+list=[1,4,5,1,2,6,4,2,1,2,3,5,6,1,5,6,4,2,5,3]
+k = {}
+for i in list:
+    if list.count(i)>1:
+        k[i]=list.count(i)
+print(k)
+#备注：字典kay为列表数字，value为对应次数
+
+
+#6. 数据转字典（名字为kay）
+# 姓名  年龄  性别  编号   任职公司   薪资   部门编号
+names = [["刘备","56","男","106","IBM", 500 ,"50"],
+         ["大乔","19","女","230","微软", 501 ,"60"],
+         ["小乔", "19", "女", "210", "Oracle", 600, "60"],
+         ["张飞", "45", "男", "230", "Tencent", 700 , "10"]]
+name = {}
+name["刘备"]={"56","男","106","IBM",'500',"50"}
+name["大乔"]={"19","女","230","微软",'501',"60"}
+name["小乔"]={"19","女","210","Oracle",'600',"60"}
+name["张飞"]={"45","男","230","Tencent",'700',"10"}
+print("names =》",name)
