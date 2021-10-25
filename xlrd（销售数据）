@@ -1,0 +1,163 @@
+import xlrd
+wb = xlrd.open_workbook(filename=r"D:2020年每个月的销售情况.xlsx",encoding_override=True)
+st = wb.sheet_by_name("1月")
+#st1= wb.sheet_bt_index(0)角标（同上
+
+#rows = st.nrows 获取有多少行
+#cols = st.ncols 获取有多少列
+#day = st.cell_value(0,0)定位
+
+#for i in range(cols):
+#data - st.row_values(i)
+#print(data)    定位全打印
+
+sal_sum = 0
+age_sum = 0
+for  i  in range(1,rows):
+    data = st.row_values(i)
+    sal_sum = sal_sum + data[1]
+    age_sum = age_sum + data[2]
+
+print("总工资为：",sal_sum,"，平均年龄为：",(age_sum / 3))#平均年龄，总工资
+
+a1 = 0
+y1 = 0
+kay1 = 0
+for  i  in range(2,rows):
+    data1 = st.row_values(i)
+    a1 = a1 + data1[1]
+    y1 = y1 + data1[3]
+    kay = a1 * y1
+    kay1 = kay1 + kay
+#print(kay1)1月数据
+
+st = wb.sheet_by_name("2月")
+a2 = 0
+y2 = 0
+kay2 = 0
+for  i  in range(2,rows):
+    data2 = st.row_values(i)
+    a2 = a2 + data2[1]
+    y2 = y2 + data2[3]
+    kay = a2 * y2
+    kay2 = kay2 + kay
+#print(kay2)2月数据
+
+st = wb.sheet_by_name("3月")
+a3 = 0
+y3 = 0
+kay3 = 0
+for  i  in range(2,rows):
+    data3 = st.row_values(i)
+    a3 = a3 + data3[1]
+    y3 = y3 + data3[3]
+    kay = a3 * y3
+    kay3 = kay3 + kay
+#print(kay3)3月数据
+
+st = wb.sheet_by_name("4月")
+a4 = 0
+y4 = 0
+kay4 = 0
+for  i  in range(2,rows):
+    data4 = st.row_values(i)
+    a4 = a4 + data4[1]
+    y4 = y4 + data4[3]
+    kay = a4 * y4
+    kay4 = kay4 + kay
+#print(kay4)4月数据
+
+st = wb.sheet_by_name("5月")
+a5 = 0
+y5 = 0
+kay5 = 0
+for  i  in range(2,rows):
+    data5 = st.row_values(i)
+    a5 = a5 + data5[1]
+    y5 = y5 + data5[3]
+    kay = a5 * y5
+    kay5 = kay5 + kay
+#print(kay5)5月数据
+
+st = wb.sheet_by_name("6月")
+a6 = 0
+y6 = 0
+for  i  in range(2,rows):
+    data6 = st.row_values(i)
+    a6 = a6 + data6[1]
+    y6 = y6 + data6[3]
+    kay = a6 * y3
+    kay6 = kay6 + kay
+#print(kay6)6月数据
+
+st = wb.sheet_by_name("7月")
+a7 = 0
+y7 = 0
+for  i  in range(2,rows):
+    data7 = st.row_values(i)
+    a7 = a7 + data7[1]
+    y7 = y7 + data7[3]
+    kay = a7 * y7
+    kay7 = kay7 + kay
+#print(kay7)7月数据
+
+st = wb.sheet_by_name("8月")
+a8 = 0
+y8 = 0
+for  i  in range(2,rows):
+    data8 = st.row_values(i)
+    a8 = a8 + data8[1]
+    y8 = y8 + data8[3]
+    kay = a8 * y8
+    kay8 = kay8 + kay
+#print(kay8)8月数据
+
+st = wb.sheet_by_name("9月")
+a9 = 0
+y9 = 0
+for  i  in range(2,rows):
+    data9 = st.row_values(i)
+    a9 = a9 + data9[1]
+    y9 = y9 + data9[3]
+    kay = a9 * y9
+    kay9 = kay9 + kay
+#print(kay9)9月数据
+
+st = wb.sheet_by_name("10月")
+a10 = 0
+y10 = 0
+for  i  in range(2,rows):
+    data10 = st.row_values(i)
+    a10 = a10 + data10[1]
+    y10 = y10 + data10[3]
+    kay = a10 * y10
+    kay10 = kay10 + kay
+#print(kay10)10月数据
+
+st = wb.sheet_by_name("11月")
+a11 = 0
+y11 = 0
+for  i  in range(2,rows):
+    data11 = st.row_values(i)
+    a11 = a11 + data11[1]
+    y11 = y11 + data11[3]
+    kay = a11 * y11
+    kay11 = kay11 + kay
+#print(kay11)11月数据
+
+st = wb.sheet_by_name("12月")
+a12 = 0
+y12 = 0
+for  i  in range(2,rows):
+    data12 = st.row_values(i)
+    a12 = a12 + data12[1]
+    y12 = y12 + data12[3]
+    kay = a12 * y12
+    kay12 = kay12 + kay
+#print(kay12)12月数据
+
+kay = (kay1+kay2+kay3+kay4+kay5+kay6+kay7+kay8+kay9+kay10+kay11+kay12)
+print("年总销售额：",kay)
+
+
+
