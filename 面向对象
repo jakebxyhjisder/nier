@@ -1,0 +1,47 @@
+#1水杯
+class cup:
+    highly = ""  # 高度
+    volume = ""  # 容积
+    color = ""  # 颜色
+    masterial = ""  # 材质
+    def store(self,water):
+        print("一个高度",self.highly,"厘米,容积",self.volume,self.color,
+                "的杯子存放着",water,"与它",self.masterial,"的材质十分贴切")
+c = cup()
+c.highly = 14
+c.volume = 1.2
+c.color = "橘色"
+c.masterial = "塑料"
+c.store("果汁")
+
+#2笔记本电脑
+class computer:
+    size = ""#屏幕大小
+    money = ""#价格
+    cpu = ""#型号
+    memory = ""#内存
+    time = ""#待机时间
+    def typing(self,name):#打字
+        print("我在电脑上练习打字",name,"这篇文章")
+        
+    def play(self,game,hour):#打游戏
+	print("他在玩",game,",已经玩了",hour,"小时")
+	
+    def seethevideo(self,time,video):#看视频
+	print("我们约好了",time,"一起看",video)
+	
+    def meter(self):
+	print(self.size,"英寸,价格为",self,"cup型号",self.cpu,"内存",self.mamory,"待机时间为",self.tima)
+
+c = computer()
+c.size = 15
+c.money = 3000
+c.cpu = "GT1050"
+c.memory = "1T + 256G"
+c.time = 4
+
+c.typing("桃花源记")
+c.play("机械迷城",3)
+c.seethevideo("晚上","迷雾")
+
+c.meter()
