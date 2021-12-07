@@ -1,0 +1,28 @@
+class people:
+    age = ""
+    name = ""
+    gender = ""
+class workers(people):
+    def work(delf):
+        print("请问您见过一名叫",delf.name,"年龄大约",delf.age,"的",delf.gender,"性工人吗?\n")
+class students(people):
+    stuid = ""#学号——》以下并未使用这个属性
+    def learning(delf):
+        print("她每天都会复习到深夜")
+    def Singasong(delf):
+        print("当死神在耳旁边低语，她便会引吭高歌~")
+    def chowMe(delf):
+        print(delf.name,"-- 一个被囚禁在‘牢笼’中、年仅",delf.age,"岁的",delf.gender,"孩儿")
+a = workers()
+a.age = 35
+a.name = "维多兰*利德斯"
+a.gender = "男"
+a.work()
+
+b = students()
+b.age = 15
+b.name = "诺曼*查尔斯娜祺"
+b.gender = "女"
+b.learning()
+b.Singasong()
+b.chowMe()
