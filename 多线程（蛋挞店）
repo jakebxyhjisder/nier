@@ -1,0 +1,79 @@
+#主要任务——总程序时间30秒
+#重要参数——篮子容量500！
+
+#多线程1——》三个厨师生产，满了停顿三秒
+#多线程2——》六个顾客抢购，没了停顿两秒，3000元预算
+
+#单个厨师工资——》其生产数*1.5
+
+#收银台——》购买总数*3元减去厨师总工资
+
+from threading import Thread
+import time
+
+wetime = 30#程序时间
+basket = 500#篮子
+moneys = 0
+kay = 0
+
+for i in range(wetime):
+    kay = wetime - i
+    print("时间剩余",kay)
+    time.sleep(1)
+    class Person(Thread):
+        cookid = ""#厨师
+        number = 0#数量
+        money = 0#工资
+        customer = ""#顾客
+        money = 3000#顾客的钱
+        def run(self) -> None:#生产
+            global basket
+            while kay > 1:
+                if basket  < 500:
+                    self.number = self.number + 1
+                    basket = basket + 1
+                    self.money =self.money + 1.5
+                    print(self.cookid,"做出了一个蛋挞并放进了篮子")
+                    print("工资为：",self.money)
+                else:
+                    time.sleep(3)
+        def run(self) -> None:#生产
+            global basket
+            global moneys
+            while kay > 1:
+                if basket > 0 and self.money > 3:
+                    basket = basket - 1
+                    self.money = self.money - 3
+                    moneys = moneys + 3
+                    print(self.customer,"买了一个蛋挞")
+                    print("收入为：",moneys)
+                else:
+                    time.sleep(2)
+                        
+    p1 = Person()
+    p2 = Person()
+    p3 = Person()
+    b1 = Person()
+    b2 = Person()
+    b3 = Person()
+    b4 = Person()
+    b5 = Person()
+    b6 = Person()
+    p1.cookid = "厨师A"
+    p2.cookid = "厨师B"
+    p3.cookid = "厨师C"
+    b1.customer = "顾客1"
+    b2.customer = "顾客2"
+    b3.customer = "顾客3"
+    b4.customer = "顾客4"
+    b5.customer = "顾客5"
+    b6.customer = "顾客6"
+    p1.start()
+    p2.start()
+    p3.start()
+    b1.start()
+    b2.start()
+    b3.start()
+    b4.start()
+    b5.start()
+    b6.start()
