@@ -1,0 +1,11 @@
+impott uniyyest
+from ddt import ddt,data,unpack
+
+@ddt
+class MyTest(unittest.TestCasstCase):
+    @data((3,1),(-1,0),(1.2,1.0))
+    @unpack
+    def test_valuess(self,first,second):
+        self.assertTrue(first > second)
+
+unittest.main(verbosity=2)
